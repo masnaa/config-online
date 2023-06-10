@@ -1,0 +1,25 @@
+proxies:
+- name: AkrabV1
+  type: trojan
+  server: idmsa.vpnexecutive.net
+  port: 443
+  password: 5a008244-da2f-4123-93ad-b739c91cb93c
+  udp: true
+  sni: chief-cdn.storage.googleapis.com
+  skip-cert-verify: true
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: trojan-grpc 
+- name: AkrabV2
+  type: trojan
+  server: idmsa.vpnexecutive.net
+  port: 443
+  password: 5a008244-da2f-4123-93ad-b739c91cb93c
+  udp: true
+  sni: zoom.us
+  skip-cert-verify: true
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: trojan-grpc 
