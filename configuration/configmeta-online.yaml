@@ -159,19 +159,19 @@ dns:
   - "+.*"
   fake-ip-range: 198.18.0.1/16
 proxy-providers:
-  Paket-Eth1:
+  Paket-Sim1:
     type: http
-    path: "./proxy_provider/akun-eth1.yaml"
-    url:
+    path: "./proxy_provider/akun-sim1.yaml"
+    url: https://raw.githubusercontent.com/masnaa/config-online/main/proxy_provider/akun-sim1.yaml
     interval: 3600
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 99
-  Paket-Wwan0:
+  Paket-Sim2:
     type: http
-    path: "./proxy_provider/akun-wwan0.yaml"
-    url:
+    path: "./proxy_provider/akun-sim2.yaml"
+    url: https://raw.githubusercontent.com/masnaa/config-online/main/proxy_provider/akun-sim2.yaml
     interval: 3600
     health-check:
       enable: true
@@ -190,22 +190,23 @@ proxy-groups:
   type: select
   disable-udp: false
   proxies:
-  - ETH1-UMUM
-  - WWAN0-UMUM
+  - SIM1-UMUM
+  - SIM2-UMUM
+  - BYPASS
 - name: P
   type: url-test
   disable-udp: false
   proxies:
-  - ETH1-UMUM
-  - WWAN0-UMUM
+  - SIM1-UMUM
+  - SIM2-UMUM
   url: http://www.gstatic.com/generate_204
   interval: '99'
 - name: FB
   type: select
   disable-udp: false
   proxies:
-  - ETH1-UMUM
-  - WWAN0-UMUM
+  - SIM1-UMUM
+  - SIM2-UMUM
   url: http://www.gstatic.com/generate_204
   interval: '99'
 - name: LB
@@ -213,40 +214,40 @@ proxy-groups:
   strategy: round-robin
   disable-udp: false
   proxies:
-  - ETH1-UMUM
-  - WWAN0-UMUM
+  - SIM1-UMUM
+  - SIM2-UMUM
   url: http://www.gstatic.com/generate_204
   interval: '99'
-- name: WWAN0-UMUM
+- name: SIM1-UMUM
   type: select
   disable-udp: false
   use:
-  - Paket-Wwan0
-  interface-name: wwan0
-- name: ETH1-UMUM
-  type: select
-  disable-udp: false
-  use:
-  - Paket-Eth1
+  - Paket-Sim1
   interface-name: eth1
-- name: ETH2-GAME
+- name: SIM2-UMUM
+  type: select
+  disable-udp: false
+  use:
+  - Paket-Sim2
+  interface-name: eth1
+- name: BYPASS
   type: select
   disable-udp: false
   proxies:
   - DIRECT
-  interface-name: eth2
+  interface-name: eth1
 rule-providers:
   Rule-Umum:
     type: file
     behavior: classical
     path: "./rule_provider/khusus-umum.yaml"
-    url:
+    url: https://raw.githubusercontent.com/masnaa/config-online/main/rule_provider/khusus-umum.yaml
     interval: 3600
   Rule-Game:
     type: http
     behavior: classical
     path: "./rule_provider/khusus-game.yaml"
-    url:
+    url: https://raw.githubusercontent.com/masnaa/config-online/main/rule_provider/khusus-game.yaml
     interval: 3600
 rules:
 - DST-PORT,7895,REJECT
