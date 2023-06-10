@@ -229,6 +229,8 @@ proxy-groups:
   disable-udp: false
   use:
   - Paket-Sim2
+  proxies:
+  - BYPASS
   interface-name: eth1
 - name: BYPASS
   type: select
