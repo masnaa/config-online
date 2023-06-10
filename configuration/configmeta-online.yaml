@@ -191,14 +191,14 @@ proxy-groups:
   disable-udp: false
   proxies:
   - SIM1-UMUM
-  - SIM2-UMUM
+  - SIM2-GAME
   - BYPASS
 - name: P
   type: url-test
   disable-udp: false
   proxies:
   - SIM1-UMUM
-  - SIM2-UMUM
+  - SIM2-GAME
   url: http://www.gstatic.com/generate_204
   interval: '99'
 - name: FB
@@ -206,7 +206,7 @@ proxy-groups:
   disable-udp: false
   proxies:
   - SIM1-UMUM
-  - SIM2-UMUM
+  - SIM2-GAME
   url: http://www.gstatic.com/generate_204
   interval: '99'
 - name: LB
@@ -215,7 +215,7 @@ proxy-groups:
   disable-udp: false
   proxies:
   - SIM1-UMUM
-  - SIM2-UMUM
+  - SIM2-GAME
   url: http://www.gstatic.com/generate_204
   interval: '99'
 - name: SIM1-UMUM
@@ -224,7 +224,7 @@ proxy-groups:
   use:
   - Paket-Sim1
   interface-name: eth1
-- name: SIM2-UMUM
+- name: SIM2-GAME
   type: select
   disable-udp: false
   use:
@@ -254,7 +254,7 @@ rules:
 - DST-PORT,7892,REJECT
 - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
 - RULE-SET,Rule-Umum,IDTECH-META
-- RULE-SET,Rule-Game,ETH2-GAME
+- RULE-SET,Rule-Game,SIM2-GAME
 - GEOIP,ID,IDTECH-META
 - MATCH,IDTECH-META
 tun:
