@@ -1,0 +1,27 @@
+proxies:
+- name: AkrabV3
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: efd790e1-edb5-4d80-8582-92db4f6781e5
+  udp: true
+  sni: ctb.bukanvvip.my.id
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: "/bukanvvip"
+    headers:
+      Host: ctb.bukanvvip.my.id
+- name: AkrabV4
+  type: trojan
+  server: ctb.bukanvvip.my.id
+  port: 443
+  password: efd790e1-edb5-4d80-8582-92db4f6781e5
+  udp: true
+  sni: chief-cdn.storage.googleapis.com
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: "/bukanvvip"
+    headers:
+      Host: ctb.bukanvvip.my.id
