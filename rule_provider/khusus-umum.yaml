@@ -1,6 +1,0 @@
-payload:
-
-  # Port Traffict
-  - DST-PORT,21-23/53/80-81/443/853/5228/5353/8000-8008/8080-8081/8090/8443/8888
-  - DOMAIN-KEYWORD,cbn
-  - DOMAIN-KEYWORD,speedtest
