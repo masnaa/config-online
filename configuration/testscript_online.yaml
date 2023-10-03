@@ -64,25 +64,25 @@ rule-providers:
     type: file
     behavior: classical
     path: "./rule_provider/stream.yaml"
-    url: https://raw.githubusercontent.com/masnaa/config-online/main/rule_provider/stream.yaml
+    url: https://raw.githubusercontent.com/im-Qz/config-online/main/rule_provider/stream.yaml
     interval: 300
   Bank:
     type: file
     behavior: classical
     path: "./rule_provider/bank.yaml"
-    url: https://raw.githubusercontent.com/masnaa/config-online/main/rule_provider/bank.yaml
+    url: https://raw.githubusercontent.com/im-Qz/config-online/main/rule_provider/bank.yaml
     interval: 300
   Olshop:
     type: file
     behavior: classical
     path: "./rule_provider/olshop.yaml"
-    url: https://raw.githubusercontent.com/masnaa/config-online/main/rule_provider/olshop.yaml
+    url: https://raw.githubusercontent.com/im-Qz/config-online/main/rule_provider/olshop.yaml
     interval: 300
   Game:
     type: file
     behavior: classical
     path: "./rule_provider/gaming.yaml"
-    url: https://raw.githubusercontent.com/masnaa/config-online/main/rule_provider/gaming.yaml
+    url: https://raw.githubusercontent.com/im-Qz/config-online/main/rule_provider/gaming.yaml
     interval: 300
 proxy-providers:
   Proxy-id:
