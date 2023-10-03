@@ -1,42 +1,35 @@
----
 tun:
   enable: true
   stack: system
-  auto-route: false
-  auto-detect-interface: false
   dns-hijack:
-  - tcp://any:53
+  - tcp://8.8.8.8:53
+  - tcp://8.8.4.4:53
 profile:
   store-selected: true
   store-fake-ip: true
-secret: '123456'
-bind-address: "*"
-port: 7890
-socks-port: 7891
-redir-port: 7892
-tproxy-port: 7895
-mixed-port: 7893
-allow-lan: true
-mode: script
-log-level: info
-ipv6: false
-external-controller: 0.0.0.0:9090
-external-ui: "/usr/share/openclash/dashboard"
 dns:
   enable: true
   ipv6: false
   enhanced-mode: fake-ip
-  listen: 0.0.0.0:7874
+  listen: 127.0.0.1:7874
+  fake-ip-filter:
+  - "+.*"
+  nameserver:
+  - 114.114.114.114
+  - 119.29.29.29
+  fallback:
+  - https://cloudflare-dns.com/dns-query
+  - https://dns.google/dns-query
+  - https://1.1.1.1/dns-query
+  - tls://8.8.8.8:853
   fallback-filter:
-    geoip: true
-    geoip-code: ID
+    geoip: false
     ipcidr:
     - 0.0.0.0/8
     - 10.0.0.0/8
     - 100.64.0.0/10
     - 127.0.0.0/8
     - 169.254.0.0/16
-    - 172.24.0.0/16
     - 172.16.0.0/12
     - 192.0.0.0/24
     - 192.0.2.0/24
@@ -50,169 +43,22 @@ dns:
     - 255.255.255.255/32
     domain:
     - "+.google.com"
-    - "+.netflix.com"
     - "+.facebook.com"
     - "+.youtube.com"
     - "+.githubusercontent.com"
-    - "+.googlevideo.com"
-    - "+.msftconnecttest.com"
-    - "+.msftncsi.com"
-    - msftconnecttest.com
-    - msftncsi.com
-    fake-ip-filter:
-    - "+.pool.ntp.org"
-    - ntp7.*.com
-    - ntp6.*.com
-    - ntp5.*.com
-    - ntp4.*.com
-    - ntp3.*.com
-    - ntp2.*.com
-    - ntp1.*.com
-    - ntp.*.com
-    - time7.*.com
-    - time6.*.com
-    - time5.*.com
-    - time4.*.com
-    - time3.*.com
-    - time2.*.com
-    - time1.*.com
-    - time.*.apple.com
-    - time.*.edu.cn
-    - time.*.gov
-    - time.*.com
-    - "*.home.arpa"
-    - "*.local"
-    - "*.test"
-    - "*.localhost"
-    - "*.invalid"
-    - "*.example"
-    - "*.localdomain"
-    - time1.cloud.tencent.com
-    - "*.ntp.org"
-    - "*.time.edu"
-    - "*.lan"
-    - "*.ntp.org.cn"
-    - "*.time.edu.cn"
-    - "+.*"
-  fake-ip-range: 198.18.0.1/16
-  nameserver:
-  - 8.8.8.8
-  - 8.8.4.4
-  - 1.1.1.1
-  - 192.168.8.1
-  - https://dns.google/dns-query
-  - tls://dns.google
-  default-nameserver:
-  - 8.8.8.8
-  - 1.1.1.1
-  - 192.168.8.1
-  - 8.8.4.4
-  fake-ip-filter:
-  - "*.lan"
-  - "*.localdomain"
-  - "*.example"
-  - "*.invalid"
-  - "*.localhost"
-  - "*.test"
-  - "*.local"
-  - "*.home.arpa"
-  - time.*.com
-  - time.*.gov
-  - time.*.edu.cn
-  - time.*.apple.com
-  - time-ios.apple.com
-  - time1.*.com
-  - time2.*.com
-  - time3.*.com
-  - time4.*.com
-  - time5.*.com
-  - time6.*.com
-  - time7.*.com
-  - ntp.*.com
-  - ntp1.*.com
-  - ntp2.*.com
-  - ntp3.*.com
-  - ntp4.*.com
-  - ntp5.*.com
-  - ntp6.*.com
-  - ntp7.*.com
-  - "*.time.edu.cn"
-  - "*.ntp.org.cn"
-  - "+.pool.ntp.org"
-  - time1.cloud.tencent.com
-  - "+.msftconnecttest.com"
-  - "+.msftncsi.com"
-  - "+.msftconnecttest.com"
-  - "+.msftncsi.com"
-  - stun.*.*
-  - stun.*.*.*
-  - "+.stun.*.*"
-  - "+.stun.*.*.*"
-  - "+.stun.*.*.*.*"
-  - "+.stun.*.*.*.*.*"
-  - "*.linksys.com"
-  - "*.linksyssmartwifi.com"
-  - "*.router.asus.com"
-  - mesu.apple.com
-  - swscan.apple.com
-  - swquery.apple.com
-  - swdownload.apple.com
-  - swcdn.apple.com
-  - swdist.apple.com
-  - lens.l.google.com
-  - "+.google.com"
-  - Mijia Cloud
-  - "+.cmbchina.com"
-  - "+.cmbimg.com"
-  - "+.media.dssott.com"
-  - "*.mcdn.bilivideo.cn"
-  - ff.dorado.sdo.com
-  - "*.ff14.sdo.com"
-  - "*.ffxiv.com"
-  - "*.finalfantasyxiv.com"
-  - "*.square-enix.com"
-  - "+.nflxvideo.net"
-  - stun.l.google.com
-  - heartbeat.belkin.com
-  - proxy.golang.org
-  - "+.wargaming.net"
-  - "+.wowsgame.cn"
-  - "+.wggames.cn"
-  - "+.wotgame.cn"
-  - "+.battlenet.com.cn"
-  - xnotify.xboxlive.com
-  - xbox.*.microsoft.com
-  - "*.*.xboxlive.com"
-  - xbox.*.*.microsoft.com
-  - "+.stun.playstation.net"
-  - "*.n.n.srv.nintendo.net"
-  - "+.srv.nintendo.net"
-  - localhost.sec.qq.com
-  - localhost.ptlogin2.qq.com
-  - msftncsi.com
-  - msftconnecttest.com
-  - music.migu.cn
-  - "*.music.migu.cn"
-  - "*.xiami.com"
-  - amobile.music.tc.qq.com
-  - aqqmusic.tc.qq.com
-  - dl.stream.qqmusic.qq.com
-  - isure.stream.qqmusic.qq.com
-  - mobileoc.music.tc.qq.com
-  - streamoc.music.tc.qq.com
-  - "*.y.qq.com"
-  - y.qq.com
-  - joox.com
-  - api.joox.com
-  - api-jooxtt.sanook.com
-  - "*.kuwo.cn"
-  - trackercdn.kugou.com
-  - songsearch.kugou.com
-  - music.taihe.com
-  - musicapi.taihe.com
-  - "*.126.net"
-  - "*.music.163.com"
-  - music.163.com
+redir-port: 7892
+tproxy-port: 7895
+port: 7890
+socks-port: 7891
+mixed-port: 7893
+mode: rule
+log-level: info
+allow-lan: true
+external-controller: 0.0.0.0:9090
+secret: sclient
+bind-address: "*"
+external-ui: "/usr/share/openclash/ui"
+ipv6: false
 rule-providers:
   Stream:
     type: file
