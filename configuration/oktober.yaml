@@ -112,7 +112,7 @@ proxy-groups:
   disable-udp: false
   proxies:
   - MANUAL
-  - DICOBABRO
+  - ALL-BALANCE
   url: https://cp.cloudflare.com/generate_204
   interval: '10'
 - name: MANUAL
@@ -155,7 +155,7 @@ proxy-groups:
   - PROXY-SG
   url: https://cp.cloudflare.com/generate_204
   interval: '10'
-- name: DICOBABRO
+- name: ALL-BALANCE
   type: load-balance
   strategy: round-robin
   disable-udp: false
