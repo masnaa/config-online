@@ -51,7 +51,7 @@ tproxy-port: 7895
 port: 7890
 socks-port: 7891
 mixed-port: 7893
-mode: rule
+mode: script
 log-level: info
 allow-lan: true
 external-controller: 0.0.0.0:9090
@@ -105,7 +105,7 @@ proxy-groups:
   disable-udp: false
   proxies:
   - MANUAL
-  - ALL-BALANCE
+  - DICOBABRO
   url: https://cp.cloudflare.com/generate_204
   interval: '10'
 - name: MANUAL
@@ -148,7 +148,7 @@ proxy-groups:
   - PROXY-SG
   url: https://cp.cloudflare.com/generate_204
   interval: '10'
-- name: ALL-BALANCE
+- name: DICOBABRO
   type: load-balance
   strategy: round-robin
   disable-udp: false
