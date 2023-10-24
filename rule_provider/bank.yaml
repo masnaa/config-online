@@ -22,6 +22,8 @@ payload:
   - DOMAIN-KEYWORD,shopeepay
   - DOMAIN-KEYWORD,grab
   - DOMAIN-KEYWORD,grabtaxi
+  - DOMAIN-KEYWORD,socialblade
+  - DOMAIN-SUFFIX,socialblade.com
 
  #BCA
   - DOMAIN-SUFFIX,klikbca.com
