@@ -99,6 +99,20 @@ proxy-providers:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 300
+  PROXY-WA:
+    type: file
+    path: "./proxy_provider/proxy-wa.yaml"
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+  PROXY-GAME:
+    type: file
+    path: "./proxy_provider/proxy-wa.yaml"
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
   RUNNING-TEST:
     type: file
     path: "./proxy_provider/running-test.yaml"
@@ -129,6 +143,7 @@ proxy-groups:
   proxies:
   - BALANCE-ID
   - BALANCE-SG
+  - BALANCE-WA
   url: https://cp.cloudflare.com/generate_204
   interval: '10'
 - name: GAME
@@ -153,6 +168,12 @@ proxy-groups:
   disable-udp: false
   use:
   - PROXY-SG
+- name: BALANCE-WA
+  type: load-balance
+  strategy: round-robin
+  disable-udp: false
+  use:
+  - PROXY-WA
   url: https://cp.cloudflare.com/generate_204
   interval: '10'
 - name: ALL-BALANCE
