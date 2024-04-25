@@ -419,3 +419,6 @@ payload:
   - IP-CIDR,102.132.96.0/20
   - IP-CIDR,129.134.160.0/24
   - IP-CIDR,157.240.192.0/18
+
+    # Download
+  - DOMAIN-KEYWORD,mediafire
